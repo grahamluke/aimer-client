@@ -2,7 +2,7 @@
 
 A krunker client for aimers!
 
-## Contributing
+## Run from source
 
 ```shell
 # install dependencies
