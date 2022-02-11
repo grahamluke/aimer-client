@@ -1,0 +1,64 @@
+{
+  "name": "aimer-client",
+  "version": "0.0.1",
+  "description": "A krunker client for Aimers!",
+  "main": "./app/main.src.js",
+  "scripts": {
+    "test": "electron .",
+    "dist": "electron-builder --publish never --win --mac --linux --x64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grahamluke/aimer-client.git"
+  },
+  "build": {
+    "appId": "com.lukegraham.krunker",
+    "mac": {
+      "target": "dmg",
+      "icon": "app/icon.png"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "app/icon.png"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "app/icon.png"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "license": "LICENSE",
+      "include": "build/installer.nsh"
+    },
+    "files": [
+      "!app/main.js${/*}",
+      "!app/preload.js${/*}"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "grahamluke",
+        "repo": "aimer-client"
+      }
+    ]
+  },
+  "author": "Luke Graham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grahamluke/aimer-client/issues"
+  },
+  "homepage": "https://github.com/grahamluke/aimer-client#readme",
+  "dependencies": {
+    "cross-fetch": "^3.1.5",
+    "discord-rpc": "^4.0.1",
+    "electron-localshortcut": "^3.2.1",
+    "electron-store": "^8.0.1",
+    "electron-updater": "^4.0.4",
+    "tmi.js": "^1.8.5"
+  },
+  "devDependencies": {
+    "electron": "^11.0.0-beta.1",
+    "electron-builder": "^22.14.13"
+  }
+}
