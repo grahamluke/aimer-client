@@ -1,11 +1,11 @@
 {
   "name": "aimer-client",
-  "version": "0.0.1",
+  "version": "0.0.1-1",
   "description": "A krunker client for Aimers!",
   "main": "./app/main.src.js",
   "scripts": {
     "test": "electron .",
-    "dist": "electron-builder --publish never --win --mac --linux --x64"
+    "dist": "electron-builder --publish always --win --mac --linux --x64"
   },
   "repository": {
     "type": "git",

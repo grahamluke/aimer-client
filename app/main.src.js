@@ -30,6 +30,9 @@ if(config.get('twitch') == null) {
 if(config.get('loadingScreenImage') == null) {
 	config.set('loadingScreenImage', '')
 }
+if (config.get('account') == null) {
+	config.set('account', [])
+  }
 app.commandLine.appendSwitch('ignore-gpu-blocklist')
 app.commandLine.appendSwitch('autoplay-policy', 'no-user-gesture-required')
 app.commandLine.appendSwitch('enable-quic')
@@ -151,9 +154,14 @@ const createMainWindow = async () => {
 		localShortcut.register('Ctrl+Alt+F1', () => {
 			wipeCache()
 		})
+		if(process.platform == 'darwin') {
 		localShortcut.register('Cmd+Shift+I', () => {
 			win.webContents.openDevTools()
-		})
+		}) } else {
+			localShortcut.register('Ctrl+Shift+I', () => {
+				win.webContents.openDevTools()
+			})
+		}
 		return win
 	} catch (err) {
 		console.log(err)
